@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './App.css';
+import configData from "./firebase-config.json";
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -9,15 +10,7 @@ import 'firebase/analytics';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-firebase.initializeApp({
-  apiKey: "AIzaSyDZUltXBH-4bUfRSCom0tJrOUZP6gfbEO8",
-  authDomain: "superchat-6391f.firebaseapp.com",
-  projectId: "superchat-6391f",
-  storageBucket: "superchat-6391f.appspot.com",
-  messagingSenderId: "558607465643",
-  appId: "1:558607465643:web:489011de60cad7d21b0bee",
-  measurementId: "G-1PQK0F7ZW8"
-})
+firebase.initializeApp(configData);
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
