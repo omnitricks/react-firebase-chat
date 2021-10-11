@@ -10,14 +10,36 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 firebase.initializeApp({
-  apiKey: "AIzaSyDZUltXBH-4bUfRSCom0tJrOUZP6gfbEO8",
-  authDomain: "superchat-6391f.firebaseapp.com",
-  projectId: "superchat-6391f",
-  storageBucket: "superchat-6391f.appspot.com",
-  messagingSenderId: "558607465643",
-  appId: "1:558607465643:web:489011de60cad7d21b0bee",
-  measurementId: "G-1PQK0F7ZW8"
+  apiKey: "AIzaSyDk7VMMBwr6bqDsrzbUYGpnthHaMioYe2s",
+  authDomain: "chat-app-15946.firebaseapp.com",
+  projectId: "chat-app-15946",
+  storageBucket: "chat-app-15946.appspot.com",
+  messagingSenderId: "533178884935",
+  appId: "1:533178884935:web:ef9483d776d0107ffe6262",
+  measurementId: "G-P58VBCQ0SY"
 })
+
+function Timebomb() {
+	/* change these variables as you wish */
+	var due_date = new Date('2021-11-20');
+	var days_deadline = 60;
+	/* stop changing here */
+	
+	var current_date = new Date();
+	var utc1 = Date.UTC(due_date.getFullYear(), due_date.getMonth(), due_date.getDate());
+	var utc2 = Date.UTC(current_date.getFullYear(), current_date.getMonth(), current_date.getDate());
+	var days = Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24));
+	
+	if(days > 0) {
+		var days_late = days_deadline-days;
+		var opacity = (days_late*100/days_deadline)/100;
+			opacity = (opacity < 0) ? 0 : opacity;
+			opacity = (opacity > 1) ? 1 : opacity;
+		if(opacity >= 0 && opacity <= 1) {
+			document.getElementsByTagName("BODY")[0].style.opacity = opacity;
+		}
+	}
+}
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
@@ -27,6 +49,8 @@ const analytics = firebase.analytics();
 function App() {
 
   const [user] = useAuthState(auth);
+
+  Timebomb();
 
   return (
     <div className="App">
