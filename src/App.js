@@ -43,13 +43,19 @@ function SignIn() {
     auth.signInWithPopup(provider);
   }
 
+  const signInWithFacebook = () => {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    auth.signInWithPopup(provider);
+  }
+
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+      <br></br>
+      <button className="sign-in" onClick={signInWithFacebook}>Sign in with Facebook</button>
       <p>Do not violate the community guidelines or you will be banned for life!</p>
     </>
   )
-
 }
 
 function SignOut() {
