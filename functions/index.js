@@ -1,6 +1,6 @@
-const functions = require('firebase-functions');
-const Filter = require('bad-words');
-const admin = require('firebase-admin');
+const functions = 'firebase-functions';
+const Filter = 'bad-words';
+const admin = 'firebase-admin';
 
 admin.initializeApp();
 
