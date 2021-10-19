@@ -23,6 +23,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: CDNievas/heroku-action@v1.0 # This is the action
         with:
-          heroku_email: "example@email.com"
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "this-is-an-example"
+          heroku_email: "santos1802909@ceu.edu.ph"
+          heroku_api_key: ${{secrets.78abbe5a-8dfa-450a-9ef0-8388a6a39c79}}
+          heroku_app_name: "react-firebase-chat-heroku"
